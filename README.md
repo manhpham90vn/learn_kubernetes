@@ -1,4 +1,4 @@
-# Case 2
+# Learn Kubernestes
 - minikube and kubernetes
 
 ## Version
