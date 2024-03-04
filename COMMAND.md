@@ -118,3 +118,8 @@ kubectl get pvc
 ```shell
 kubectl get configmap
 ```
+
+## Switch Context
+```shell
+aws eks --region ap-southeast-1 update-kubeconfig --name myCluster
+```
