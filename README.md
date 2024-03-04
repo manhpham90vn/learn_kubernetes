@@ -48,3 +48,5 @@
 ### persistentVolumeClaim
 
 ## Network
+
+### Core DNS
