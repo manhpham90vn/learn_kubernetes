@@ -2,6 +2,10 @@
 ```shell
 kubectl get all
 ```
+## Name Spaces
+```shell
+kubectl get namespaces
+```
 
 ## Pod
 ### Deploy pod
