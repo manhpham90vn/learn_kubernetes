@@ -186,6 +186,7 @@ helm template mydatabase bitnami/mysql --values values.yaml
 helm upgrade -n default mydatabase bitnami/mysql --set auth.rootPassword=toor1
 helm upgrade -n default mydatabase bitnami/mysql --values values.yaml
 helm upgrade -n default mydatabase bitnami/mysql --values values.yaml --dry-run # only create template (not run)
+helm upgrade -n default mydatabase bitnami/mysql --values values.yaml --force --cleanup-on-fail
 ```
 
 - status
@@ -228,4 +229,20 @@ helm history mydatabase
 - rollback
 ```shell
 helm rollback mydatabase 1
+```
+
+### Custom chart
+- create chart
+```shell
+helm create mychart
+```
+
+- install my chart
+```shell
+helm install mychart mychart 
+```
+
+- package chart
+```shell
+helm package mychart
 ```
