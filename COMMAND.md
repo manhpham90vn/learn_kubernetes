@@ -127,3 +127,105 @@ kubectl get configmap
 ```shell
 aws eks --region ap-southeast-1 update-kubeconfig --name myCluster
 ```
+
+### Secrets
+- get list secrets
+```shell
+kubectl get secrets
+```
+
+- get secret
+```shell
+kubectl get secret mydatabase-mysql -o yaml
+```
+
+## Helm
+### Repo
+- list repo
+```shell
+helm repo list
+```
+
+- add repo
+```shell
+helm repo add bitnami https://charts.bitnami.com/bitnami
+```
+
+- search repo
+```shell
+helm search repo apache
+```
+
+- remove repo
+```shell
+helm repo remove bitnami
+```
+
+- update repo
+```shell
+helm repo update
+```
+
+### Chart
+- install
+```shell
+helm install mydatabase bitnami/mysql
+helm install mydatabase bitnami/mysql --set auth.rootPassword=toor
+helm install mydatabase bitnami/mysql --values values.yaml
+helm install mydatabase bitnami/mysql --values values.yaml --dry-run # only create template (not run)
+helm install mydatabase bitnami/mysql --namespace mynamespace --create-namespace
+```
+
+- template
+```shell
+helm template mydatabase bitnami/mysql --values values.yaml
+```
+
+- upgrade
+```shell
+helm upgrade -n default mydatabase bitnami/mysql --set auth.rootPassword=toor1
+helm upgrade -n default mydatabase bitnami/mysql --values values.yaml
+helm upgrade -n default mydatabase bitnami/mysql --values values.yaml --dry-run # only create template (not run)
+```
+
+- status
+```shell
+helm status mydatabase
+```
+
+- show note
+```shell
+helm get notes mydatabase
+```
+
+- show values
+```shell
+helm get values mydatabase
+helm get values mydatabase --all
+helm get values mydatabase --revision 2
+```
+
+- list chart
+```shell
+helm list
+```
+
+- list chart in namespace
+```shell
+helm list -n mynamespace
+```
+
+- uninstall chart
+```shell
+helm uninstall mydatabase
+```
+
+- show history
+```shell
+helm history mydatabase
+```
+
+- rollback
+```shell
+helm rollback mydatabase 1
+```
